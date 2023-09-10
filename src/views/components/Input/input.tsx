@@ -8,6 +8,9 @@ interface InputProps {
 export const Input: React.FC<InputProps> = ({ onAdd }) => {
   const [inputValue, setInputValue] = useState('')
   const addTask = useCallback(() => {
+    if (inputValue === '') {
+      return onAdd('пустая задача')
+    }
     onAdd(inputValue)
     setInputValue('')
   }, [inputValue])

@@ -26,6 +26,20 @@ class TasksStore {
       isDone: false,
     })
   }
+  editedTask = (id: string, text: string) => {
+    const taskToUpdate = this.tasks.find((task) => task.id === id)
+    if (taskToUpdate) {
+      taskToUpdate.text = text
+    }
+  }
+  removedTask = (id: string) => {
+    this.tasks = this.tasks.filter((task) => task.id !== id)
+  }
+  statusTask = () => {
+    this.tasks.forEach((task) => {
+      task.isDone = !task.isDone
+    })
+  }
 }
 
 export default new TasksStore()

@@ -1,19 +1,17 @@
 import React, { useCallback, useState } from 'react'
 import styles from './input.module.scss'
-import { on } from 'stream'
+
 interface InputProps {
   onAdd: (text: string) => void
 }
 
 export const Input: React.FC<InputProps> = ({ onAdd }) => {
   const [inputValue, setInputValue] = useState('')
+
   const addTask = useCallback(() => {
-    if (inputValue === '') {
-      return onAdd('пустая задача')
-    }
     onAdd(inputValue)
     setInputValue('')
-  }, [inputValue])
+  }, [inputValue, onAdd])
 
   return (
     <div className={styles.input}>

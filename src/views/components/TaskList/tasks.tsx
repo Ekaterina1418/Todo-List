@@ -2,23 +2,25 @@ import React, { useState, useRef, useEffect } from 'react'
 import styles from './index.module.scss'
 
 interface TaskProps {
+  isDone: boolean
   id: string
   text: string
-  onDone: () => void
+  onDone: (id: string) => void
   onRemoved: (id: string) => void
   onEdited: (id: string, text: string) => void
 }
 
 export const TaskList: React.FC<TaskProps> = ({
+  isDone,
   id,
   text,
   onDone,
   onRemoved,
   onEdited,
 }) => {
-  const [checked, setChecked] = useState(false)
   const [isEditMode, setEditMode] = useState(false)
   const [value, setValue] = useState(text)
+  const [checked, setChecked] = useState(isDone)
   const editTextRef = useRef<HTMLInputElement>(null)
 
   useEffect(() => {
@@ -34,13 +36,13 @@ export const TaskList: React.FC<TaskProps> = ({
           type="checkbox"
           disabled={isEditMode}
           checked={checked}
-          className={styles.taskCheckbox}
           onChange={(e) => {
             setChecked(e.target.checked)
             if (e.target.checked) {
-              onDone()
+              onDone(id)
             }
           }}
+          className={styles.taskCheckbox}
         />
         {isEditMode ? (
           <input

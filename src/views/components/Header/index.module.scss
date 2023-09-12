@@ -1,0 +1,21 @@
+.header {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 50px;
+  &Button {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font: 1rem/1.4 'Roboto', sans-serif;
+  }
+  &Button:first-child {
+    margin-right: 15px;
+    color: #ffffff;
+    background: #0729ea;
+  }
+  &Button:last-child {
+    color: #0729ea;
+    background: #ffffff;
+  }
+}

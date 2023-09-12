@@ -1,5 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
+import './i18next'
 import { App } from './views/App/App'
 import { RootStoreContext } from './data/root-store-context'
 import RootStore from './data/root-store'

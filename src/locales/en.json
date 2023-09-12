@@ -1,0 +1,8 @@
+{
+  "app.title": "Task List",
+  "app.noTasks": "No tasks",
+  "app.addTaskPlaceholder": "Add a task...",
+  "app.all": "All",
+  "app.completed": "Completed",
+  "app.uncompleted": "Uncompleted"
+}

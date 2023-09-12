@@ -1,0 +1,8 @@
+{
+  "app.title": "Список задач",
+  "app.noTasks": "Задач нет",
+  "app.addTaskPlaceholder": "Добавить задачу...",
+  "app.all": "Все",
+  "app.completed": "Выполнено",
+  "app.uncompleted": "Не выполнено"
+}

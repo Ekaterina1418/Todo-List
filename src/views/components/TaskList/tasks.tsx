@@ -58,7 +58,13 @@ export const TaskList: React.FC<TaskProps> = ({
             className={styles.taskInputEdit}
           />
         ) : (
-          <h3 className={styles.taskText}>{text}</h3>
+          <h3
+            className={`${
+              checked === true ? styles.taskTextCompleted : styles.taskText
+            }`}
+          >
+            {text}
+          </h3>
         )}
       </label>
       {isEditMode ? (

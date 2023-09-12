@@ -21,6 +21,10 @@
   &Text {
     padding: 5px;
     line-height: 1.2;
+    text-decoration: none;
+  }
+  &TextCompleted {
+    text-decoration: line-through;
   }
   &InputEdit {
     border: none;
@@ -52,5 +56,11 @@
   }
   &Save {
     background-image: url('./images/check.svg');
+  }
+}
+
+@media (max-width: 425px) {
+  .taskLabel {
+    padding: 6px 6px;
   }
 }

@@ -1,0 +1,36 @@
+.button {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+  &Filter:not(:last-child) {
+    margin-right: 20px;
+  }
+  &Filter {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font: 1rem/1.4 'Roboto', sans-serif;
+    color: #ffffff;
+  }
+  &Filter:first-child {
+    background-color: rgb(122, 196, 131);
+  }
+  &Filter:nth-child(2) {
+    background: rgb(59, 59, 229);
+  }
+  &Filter {
+    background: rgb(230, 60, 60);
+  }
+}
+
+@media (max-width: 425px) {
+  .buttonFilter {
+    font-size: 0.7em;
+    line-height: 1.2;
+  }
+}
+@media (max-width: 375px) {
+  .buttonFilter {
+  }
+}

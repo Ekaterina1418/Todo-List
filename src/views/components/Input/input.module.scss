@@ -2,7 +2,7 @@
   width: 100%;
   display: grid;
   grid-template-columns: 1fr 60px;
-  margin-bottom: 15px;
+  margin-bottom: 30px;
   &Value {
     border: 1px solid #b1b1b1;
     border-top-left-radius: 5px;
@@ -24,5 +24,10 @@
     &:hover {
       opacity: 0.7;
     }
+  }
+}
+@media (max-width: 425px) {
+  .inputValue {
+    padding: 6px 7px;
   }
 }

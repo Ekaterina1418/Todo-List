@@ -22,7 +22,7 @@ export const App: React.FC = observer(() => {
     },
   } = useStores()
 
-  const { t } = useTranslation()
+  const { t } = useTranslation() // Инициализация хука для локализации
 
   const handleFilterChange = (status: FilterStatus) => {
     statusTask(status)

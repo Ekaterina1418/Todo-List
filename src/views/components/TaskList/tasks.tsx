@@ -18,16 +18,27 @@ export const TaskList: React.FC<TaskProps> = ({
   onRemoved,
   onEdited,
 }) => {
+  // Состояние для  редактирования задачи
   const [isEditMode, setEditMode] = useState(false)
+
+  // Состояние для текста задачи редактирования
   const [value, setValue] = useState(text)
-  const [checked, setChecked] = useState(isDone)
+
+  // Состояние для отметки выполнения задачи
+
+  // Реф для поля ввода в режиме редактирования
   const editTextRef = useRef<HTMLInputElement>(null)
 
+  // Фокусировка на поле ввода при переходе в режим редактирования
   useEffect(() => {
     if (isEditMode) {
       editTextRef?.current?.focus()
     }
   }, [isEditMode])
+
+  const handleToggle = () => {
+    onDone(id)
+  }
 
   return (
     <div className={styles.task}>
@@ -35,13 +46,8 @@ export const TaskList: React.FC<TaskProps> = ({
         <input
           type="checkbox"
           disabled={isEditMode}
-          checked={checked}
-          onChange={(e) => {
-            setChecked(e.target.checked)
-            if (e.target.checked) {
-              onDone(id)
-            }
-          }}
+          checked={isDone}
+          onChange={handleToggle}
           className={styles.taskCheckbox}
         />
         {isEditMode ? (
@@ -60,7 +66,7 @@ export const TaskList: React.FC<TaskProps> = ({
         ) : (
           <h3
             className={`${
-              checked === true ? styles.taskTextCompleted : styles.taskText
+              isDone === true ? styles.taskTextCompleted : styles.taskText
             }`}
           >
             {text}

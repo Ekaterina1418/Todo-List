@@ -6,18 +6,20 @@ interface InputProps {
 }
 
 export const Input: React.FC<InputProps> = ({ onAdd }) => {
-  const { t } = useTranslation()
-  const [inputValue, setInputValue] = useState('')
+  const { t } = useTranslation() // Инициализация хука для локализации
+  const [inputValue, setInputValue] = useState('') // Используем хук состояния для отслеживания значения ввода
 
+  // Callback-функция для добавления задачи. Использовние этого хука позволит создать функцию addTask один раз при первом рендере и пересоздаваться только при изменении зависимостей.
   const addTask = useCallback(() => {
-    onAdd(inputValue)
-    setInputValue('')
-  }, [inputValue, onAdd])
+    onAdd(inputValue) // Вызываем функцию onAdd и передаем ей текст задачи
+    setInputValue('') // Очищаем значение ввода после добавления задачи
+  }, [inputValue, onAdd]) // Зависимости включают значение ввода и функцию onAdd
 
+  // Обработчик клика на кнопке "Добавить"
   const handleAddClick = () => {
     if (inputValue.trim() !== '') {
-      onAdd(inputValue)
-      setInputValue('')
+      onAdd(inputValue) // Если текст задачи не пустой, вызываем функцию onAdd
+      setInputValue('') // Очищаем значение ввода
     }
   }
 
